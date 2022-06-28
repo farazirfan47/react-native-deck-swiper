@@ -374,6 +374,7 @@ class Swiper extends Component {
       0,
       mustDecrementCardIndex
     )
+    this.setState({ labelType: LABEL_TYPES.LEFT })
   }
 
   swipeRight = (mustDecrementCardIndex = false) => {
@@ -383,6 +384,7 @@ class Swiper extends Component {
       0,
       mustDecrementCardIndex
     )
+    this.setState({ labelType: LABEL_TYPES.RIGHT })
   }
 
   swipeTop = (mustDecrementCardIndex = false) => {
@@ -430,6 +432,9 @@ class Swiper extends Component {
           this.decrementCardIndex(onSwiped)
         } else {
           this.incrementCardIndex(onSwiped)
+        }
+        if(this.state.labelType != "none"){
+          this.setState({ labelType: LABEL_TYPES.NONE })
         }
       })
     })
